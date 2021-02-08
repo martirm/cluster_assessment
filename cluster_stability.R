@@ -1,6 +1,6 @@
 source("stability_functions.R")
 source("load_data.R")
-library(rewire)
+library(clustAnalytics)
 library(xtable)
 
 

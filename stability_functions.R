@@ -5,7 +5,7 @@ library(truncnorm)
 library(Rcpp)
 library(igraph)
 library(boot)
-library(rewire)
+library(clustAnalytics)
 library(mcclust) #includes variation of information (VI) function
 library(mclust) #includes adjusted rand index
 library(fossil) #includes Rand Index funtion
