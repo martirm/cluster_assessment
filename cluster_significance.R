@@ -1,30 +1,28 @@
 #test cluster significance by applying clustering algorithms to the test networks and then evaluating
 #scoring functions on them. For networks with a "ground-truth clustering", evaluate that one as well and compare
 
+source("significance_functions.R")
 source("load_data.R")
-library(clustAnalytics)
+library(rewire)
 library(xtable)
 library(pbapply)
 library(mcclust)
 
 
 set.seed(1)
-significance_table_karate <- evaluate_significance_r(karate, alg_list=clust_alg_list,
-                                                     weight_sel="max_weight", n_reps=100,
+significance_table_karate <- evaluate_significance_r(karate, weight_sel="max_weight", n_reps=100,
                                                      ground_truth=TRUE, gt_clustering=karate_gt_clustering,
                                                      w_max=NULL)
-significance_table_forex <- evaluate_significance_r(g_forex, lower_bound=0, upper_bound=1, alg_list=clust_alg_list,
-                                                    n_reps=100, w_max=1)
-significance_table_news <- evaluate_significance_r(g_news, n_reps=10, w_max=NULL, alg_list=clust_alg_list)
+significance_table_forex <- evaluate_significance_r(g_forex, lower_bound=0, upper_bound=1, n_reps=100,
+                                                    w_max=1)
+significance_table_news <- evaluate_significance_r(g_news, n_reps=10, w_max=NULL)
 
-significance_table_wsbm <- evaluate_significance_r(g_wsbm_binomial, ground_truth=TRUE,  alg_list=clust_alg_list,
+significance_table_wsbm <- evaluate_significance_r(g_wsbm_binomial, ground_truth=TRUE, 
                                                    gt_clustering=wsbm_gt_clustering, n_reps=100,
                                                    weight_sel="max_weight")
-significance_table_enron <- evaluate_significance_r(weighted_enron, weight_sel="max_weight",  alg_list=clust_alg_list,
-                                                    n_reps=100, w_max=NULL)
+significance_table_enron <- evaluate_significance_r(weighted_enron, weight_sel="max_weight", n_reps=100, w_max=NULL)
 
-significance_table_sn <- evaluate_significance_r(g_social_network, weight_sel="max_weight",  alg_list=clust_alg_list,
-                                                 n_reps=10, w_max=NULL)
+significance_table_sn <- evaluate_significance_r(g_social_network, weight_sel="max_weight", n_reps=10, w_max=NULL)
 
 
 ####

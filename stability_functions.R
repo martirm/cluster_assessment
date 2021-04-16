@@ -214,12 +214,12 @@ cluster_statistic <- function(data, sample, memb_original, clust_alg, g, type="g
     }
     else{
         statistics <- c(vi.dist(memb_nd, memb_resample)/log(n), 
-                        reduced_mutual_information(memb_nd, memb_resample, 
+                        clustAnalytics::reduced_mutual_information(memb_nd, memb_resample, 
                                                    normalized=TRUE), 
                         rand.index(memb_nd, memb_resample),
                         adjustedRandIndex(memb_nd, memb_resample),
                         length(unique(memb_resample)))
-        names(statistics) <- c("VI", "RMI", "Rand", "AdRand", "n_clusters")
+        names(statistics) <- c("VI", "NRMI", "Rand", "AdRand", "n_clusters")
         return(statistics)
     }
 }

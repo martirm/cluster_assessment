@@ -174,8 +174,8 @@ pm <- matrix (c(.03, .01, .01, .03,
 g_wsbm_binomial <- sample_wsbm_binomial(multiply_diagonal(15, pm),c(40,25,25,10))
 wsbm_gt_clustering <- ground_truth_sbm(c(40,25,25,10))
 par(mar=c(0,0,0,0)+.05)
-plot(g_wsbm_binomial, vertex.size=9, vertex.color=wsbm_gt_clustering, vertex.label=NA, 
-     edge.width=(E(g_wsbm_binomial)$weight))
+# plot(g_wsbm_binomial, vertex.size=9, vertex.color=wsbm_gt_clustering, vertex.label=NA, 
+#      edge.width=(E(g_wsbm_binomial)$weight))
 
 
 wsbm_parameters <- 10^seq(0,3,length.out=50)
@@ -183,6 +183,8 @@ block_sizes <- c(40, 25, 25, 10)
 g_wsbm_p_list <- parametrized_wsbm_binomial_list(pm, c(40,25,25,10), 
                                                  params=wsbm_parameters)
 
+# For the plots
+color_palette <- c("#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00")
 
 
 
